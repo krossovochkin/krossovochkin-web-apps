@@ -22,4 +22,4 @@ jobs:
       - name: release
         run: |
           chmod +x release.sh
-          ./release.sh
+          ./release.sh "${{ secrets.USER_GITHUB_TOKEN }}"
