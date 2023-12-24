@@ -1,0 +1,25 @@
+name: Manual Submodule Addition
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  manual-submodule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v2
+        
+      - name: Initialize submodule
+        run: git submodule update --init --recursive
+
+      - name: Commit submodule addition
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .gitmodules destination-repo
+          git commit -m "Add destination-repo submodule"
+          git push
