@@ -31,6 +31,7 @@ if [[ -z "${GITHUB_TOKEN}" || -z "${GITHUB_REPO}" ]]; then
   git commit -m "$MESSAGE"
   git push origin "${GITHUB_BRANCH}"
 else
+  echo "Start commit"
   git config --global user.email "ci@github"
   git config --global user.name "GitHub Actions CI"
   
