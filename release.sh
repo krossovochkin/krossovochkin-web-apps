@@ -37,5 +37,5 @@ else
   
   git commit -m "$MESSAGE"
   
-  git push --quiet "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPO}.git" "${GITHUB_BRANCH}"
+  git push --quiet "https://krossovochkin:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git" "${GITHUB_BRANCH}"
 fi
