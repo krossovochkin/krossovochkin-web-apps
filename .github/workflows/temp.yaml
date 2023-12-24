@@ -1,4 +1,4 @@
-name: Manual Submodule Addition
+name: Add Submodule
 
 on:
   push:
@@ -6,20 +6,20 @@ on:
       - main
 
 jobs:
-  manual-submodule:
+  add-submodule:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source repository
-        uses: actions/checkout@v2
-        
-      - name: Initialize submodule
-        run: git submodule update --init --recursive
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Commit submodule addition
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Add website submodule"
-          git push
+    - name: Add Submodule
+      run: git submodule add https://github.com/krossovochkin/personal-website.git website
+
+    - name: Commit Changes
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git add .
+        git commit -m "Add submodule"
+        git push
