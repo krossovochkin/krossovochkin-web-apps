@@ -31,7 +31,7 @@ kotlin {
             dependencies {
                 implementation(compose.html.core)
                 implementation(compose.runtime)
-                implementation(kotlinx.coroutines)
+                implementation(KotlinX.coroutines.core)
             }
         }
         val jsTest by getting {
