@@ -13,7 +13,10 @@ git pull origin ${GITHUB_BRANCH}
 shopt -s extglob
 
 cd static/applications
-rm -r *
+rm -r website/static/applications/dimensions-utils/* || true
+rm -r website/static/applications/time-utils/* || true
+rm -r website/static/applications/color-utils/* || true
+rm -r website/static/applications/card-soccer/* || true
 
 cd ../../..
 cp -a apps/dimensions-utils/build/dist/js/productionExecutable/. website/static/applications/dimensions-utils/
